@@ -1,5 +1,6 @@
 TODO for podload
 
+* create an init.d file for running as daemon
 * some kind of gui for editing the configs
 ** clojurescript? web based front-end?
 * print a few example times for each podcast when loading configs
