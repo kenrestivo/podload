@@ -26,17 +26,6 @@
               :day-of-week [1]}
   :dest-dir "/home/imports/podcasts"
   }
- 
- {:name "Radio Waves"
-  :feed-url "http://emeraldforest.libsyn.com/rss"
-  :tag "RadioWavesLatest"
-  :filename "radiowaves.mp3"
-  ;; weekly, pick a day, sunday is good
-  :frequency {:minute [0]
-              :hour [0]
-              :day-of-week [1]}
-  :dest-dir "/home/imports/podcasts"
-  }
 
  {:name "Q Filmcast"
   :feed-url "http://theqpodcast.podbean.com/feed/"
