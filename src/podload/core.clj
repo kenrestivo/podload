@@ -35,10 +35,22 @@
        dl/schedule-all!))
 
 
+(defn revision-info
+  []
+  (let [{:keys [version revision]} (utilza.java/get-project-properties "podload" "podload")]
+    (format "Version: %s, Revision %s" version revision)))
+    
+
 (defn -main [config-path & args]
+  (log/info "Welcome to Podload " (revision-info))
   (log/info "Loading config file " config-path)
   (process-config config-path))
 
 
 
+(comment
 
+
+
+  
+  )
