@@ -1,5 +1,6 @@
 *~
-datomic*.properties
+*.log
+test-config.edn
 /target
 /classes
 /checkouts

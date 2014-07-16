@@ -1,0 +1,73 @@
+[{;; The name of the show
+  :name "This Island Earth"
+  ;; The URL at which to find the podcast feed
+  :feed-url "http://www.islaearth.org/radio/feed.rss"
+  ;; The schedule! See docs for https://github.com/flatland/chronicle
+  ;; This example is every weekday
+  :frequency {:minute [0]
+              :hour [0]
+              :day-of-week [2 3 4 5 6]}
+  ;; File to save the podcast as. The file will get overwritten at each run!
+  :filename "islaearth.mp3"
+  ;; Tag for ALBUM in ID3V2.4. Use this to build SmartBlocks in Airtime for the show
+  :tag "IslaEarth"
+  ;; Where to save the show once it's done downloading and has been tagged.
+  :dest-dir "/home/imports/podcasts"
+  }
+
+
+ {:name "David Pakman"
+  :feed-url "http://feeds.feedburner.com/davidpakmanshow"
+  :tag "DavidPakman"
+  ;; only sunday
+  :filename "pakman.mp3"
+  :frequency {:minute [0]
+              :hour [0]
+              :day-of-week [1]}
+  :dest-dir "/home/imports/podcasts"
+  }
+ 
+ {:name "Radio Waves"
+  :feed-url "http://emeraldforest.libsyn.com/rss"
+  :tag "RadioWavesLatest"
+  :filename "radiowaves.mp3"
+  ;; weekly, pick a day, sunday is good
+  :frequency {:minute [0]
+              :hour [0]
+              :day-of-week [1]}
+  :dest-dir "/home/imports/podcasts"
+  }
+
+ {:name "Q Filmcast"
+  :feed-url "http://theqpodcast.podbean.com/feed/"
+  :tag "QFilmcast"
+  :filename "qfilmcast.mp3"
+  ;; weekly, pick a day, monday is good
+  :frequency {:minute [0]
+              :hour [0]
+              :day-of-week [2]}
+  :dest-dir "/home/imports/podcasts"
+  }
+
+
+ {:name "Jim Santora"
+  :feed-url "http://jimsantorashow.podomatic.com/rss2.xml"
+  :tag "JimSantora"
+  :filename "jimsantora.mp3"
+  ;; weekly, pick a day, monday is good
+  :frequency {:minute [0]
+              :hour [0]
+              :day-of-week [2]}
+  :dest-dir "/home/imports/podcasts"
+  }
+ 
+ {:name "Radio Curious"
+  :feed-url "http://feeds.feedburner.com/radiocurious-podcast"
+  :tag "RadioCurious"
+  :filename "curious.mp3"
+  ;; weekly, pick a day, sunday is good
+  :frequency {:minute [0]
+              :hour [0]
+              :day-of-week [1]}
+  :dest-dir "/home/imports/podcasts"
+  }]
