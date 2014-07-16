@@ -42,20 +42,3 @@
 
 
 
-(comment
-  ;; this should work but it does not
-  (let [[opts args banner] (cli/cli args
-                                    ["-h"
-                                     "--help" "pass config filename"
-                                     :default false
-                                     :flag true])]
-    (when (:help opts)
-      (println banner))))
-
-
-(comment
-  ;; testing
-
-  (process-config "test-config.edn")
-  
-  )

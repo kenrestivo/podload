@@ -12,3 +12,16 @@ TODO for podload
    #+BEGIN_SRC clojure
     (seq (.getQueue executor))
    #+END_SRC
+* better command-line handling
+** i.e.
+   #+BEGIN_SRC clojure
+    (let [[opts args banner] (cli/cli args
+                                    ["-h"
+                                     "--help" "pass config filename"
+                                     :default false
+                                     :flag true])]
+    (when (:help opts)
+      (println banner)))
+   #+END_SRC
+* use env properly
+* add log file path as an optional (with default) item in the config file and process it
