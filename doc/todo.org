@@ -25,3 +25,4 @@ TODO for podload
    #+END_SRC
 * use env properly
 * add log file path as an optional (with default) item in the config file and process it
+* integrate with smart blocks somehow more closely?
