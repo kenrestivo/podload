@@ -14,7 +14,7 @@
                  [org.clojure/tools.trace "0.7.6"]
                  [clj-http "0.9.2"]
                  [com.mpatric/mp3agic "0.8.2"]
-                 [utilza "0.1.54"]
+                 [utilza "0.1.55"]
                  [com.taoensso/timbre "3.2.1"]
                  [environ "0.5.0"]
                  [me.raynes/conch "0.8.0"]
