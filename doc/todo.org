@@ -1,0 +1,14 @@
+TODO for podload
+
+* some kind of gui for editing the configs
+** clojurescript? web based front-end?
+* print a few example times for each podcast when loading configs
+** i.e.
+   #+BEGIN_SRC clojure
+    (take 10 (c/times-for some-spec-map (t/now)))
+   #+END_SRC
+* some way to dynamically add/remove configs from the queue
+** i.e. based on
+   #+BEGIN_SRC clojure
+    (seq (.getQueue executor))
+   #+END_SRC
