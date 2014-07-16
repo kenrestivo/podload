@@ -3,6 +3,7 @@
             [clojure.edn :as edn]
             [clojure.tools.trace :as trace]
             [taoensso.timbre :as log]
+            [utilza.java :as ujava]
             [environ.core :as env]
             [podload.downloader :as dl])
   (:gen-class))
@@ -37,7 +38,7 @@
 
 (defn revision-info
   []
-  (let [{:keys [version revision]} (utilza.java/get-project-properties "podload" "podload")]
+  (let [{:keys [version revision]} (ujava/get-project-properties "podload" "podload")]
     (format "Version: %s, Revision %s" version revision)))
     
 
