@@ -32,26 +32,28 @@
   [config-path]
   (->> config-path
        slurp
-       edn/read-string
-       dl/schedule-all!))
+       edn/read-string))
+
 
 
 (defn revision-info
   []
   (let [{:keys [version revision]} (ujava/get-project-properties "podload" "podload")]
     (format "Version: %s, Revision %s" version revision)))
-    
+
 
 (defn -main [config-path & args]
   (log/info "Welcome to Podload " (revision-info))
   (log/info "Loading config file " config-path)
-  (process-config config-path))
+  (-> config-path
+      process-config
+      dl/schedule-all!))
 
 
 
 (comment
 
-
+  (-main "example-config.edn")
 
   
   )

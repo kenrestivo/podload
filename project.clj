@@ -1,4 +1,4 @@
-(defproject podload "0.1.0"
+(defproject podload "0.1.1"
   :description "Podcast downloader for Airtime"
   :url "http://restivo.org"
   :main podload.core

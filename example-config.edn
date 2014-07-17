@@ -5,7 +5,7 @@
   ;; The schedule! See docs for https://github.com/flatland/chronicle
   ;; This example is every weekday
   :frequency {:minute [0]
-              :hour [0]
+              :hour [0] ;; midnight
               :day-of-week [2 3 4 5 6]}
   ;; File to save the podcast as. The file will get overwritten at each run!
   :filename "islaearth.mp3"
@@ -22,7 +22,7 @@
   ;; only sunday
   :filename "pakman.mp3"
   :frequency {:minute [0]
-              :hour [0]
+              :hour [0] 
               :day-of-week [1]}
   :dest-dir "/home/imports/podcasts"
   }

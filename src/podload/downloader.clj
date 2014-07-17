@@ -2,6 +2,8 @@
   (:require [feedparser-clj.core :as feedparser]
             [me.raynes.moments :as m]
             [flatland.chronicle :as c]
+            [clj-time.local :as l]
+            [utilza.misc :as umisc]
             [taoensso.timbre :as log]
             [clj-http.client :as client]
             [clj-time.core :as t]
@@ -60,6 +62,8 @@
 
 
 (defn do-everything!
+  "Takes a config, downloads the rss feed, finds the most recent file,
+   downloads it, tags it, and moves it where it needs to go."
   [{:keys [name feed-url filename tag dest-dir] :as config}]
   (log/info "Beginning " name)
   (let [tempfile  (str "/tmp/" (java.util.UUID/randomUUID))
@@ -74,17 +78,36 @@
         (clojure.java.io/delete-file tempfile true)))))
 
 
+(defn schedule-local
+  "Hack until moments supports local time.
+   Schedule a task to run based on a Chronicle specification."
+  [executor spec f]
+  (let [[start & rest] (c/times-for spec (l/local-now))]
+    (m/schedule-at executor start (#'me.raynes.moments/chronicle-scheduler executor f rest))))
+
+(defn format-schedule
+  [frequency]
+  (->> (l/local-now)
+       (c/times-for frequency)
+       (map #(l/format-local-time % :mysql))
+       (take 5)
+       (umisc/inter-str "\n")))
+
 (defn schedule-one!
   [{:keys [name frequency] :as config}]
-  (log/info "Scheduling " name)
-  (m/schedule executor frequency #(do-everything! config)))
+  (log/info "Scheduling " name " at:\n"  (format-schedule frequency) " etc etc...")
+  (schedule-local executor frequency #(do-everything! config)))
 
 (defn schedule-all!
   [configs]
   (doseq [c configs]
     (schedule-one! c)))
 
-
+(defn seed!
+  "Start off with forcing all the configs to run."
+  [configs]
+  (doseq [c configs]
+    (do-everything! c)))
 
 
 
