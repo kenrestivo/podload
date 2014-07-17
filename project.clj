@@ -1,6 +1,6 @@
 (defproject podload "0.1.1"
   :description "Podcast downloader for Airtime"
-  :url "http://restivo.org"
+  :url "https://github.com/kenrestivo/podload"
   :main podload.core
   :plugins [[lein-bin "0.3.4"]
             [lein-environ "0.5.0"]]
