@@ -8,7 +8,7 @@ Relies heavily upon [moments](https://github.com/Raynes/moments) and [chronicle]
 
 Edit the config file, there's an example config file included.
 ```clojure
-{;; The name of the show
+[{;; The name of the show
   :name "This Island Earth"
   ;; The URL at which to find the podcast feed
   :feed-url "http://www.islaearth.org/radio/feed.rss"
@@ -24,6 +24,8 @@ Edit the config file, there's an example config file included.
   ;; Where to save the show once it's done downloading and has been tagged.
   :dest-dir "/home/imports/podcasts"
   }
+  ...
+  ]
 ```
 Run it with:
 ```shell
