@@ -12,7 +12,7 @@ Because of what is probably an implementation detail of Airtime, you can create 
 
 ## What it does not do
 
-Doesn't integrate very tightly with Airtime, nor does it know whether it has already download that show before, so you have to be careful about when to schedule the downloads. Best to check the feed and get a sense of when the podcaster usuall uploads their shows, and keep track of when you want them to run in Airtime, and set your download times to be sometime after the podcaster usually uploads and sufficiently before you want the show to run on your station.
+Doesn't integrate very tightly with Airtime, nor does it know whether it has already downloaded that show before, so you have to be careful about when to schedule the downloads. Best to check the feed and get a sense of when the podcaster usuall uploads their shows, and keep track of when you want them to run in Airtime, and set your download times to be sometime after the podcaster usually uploads and sufficiently before you want the show to run on your station.
 
 ## Who would want this?
 
