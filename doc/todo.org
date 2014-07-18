@@ -23,3 +23,4 @@ TODO for podload
 * use env properly
 * add log file path as an optional (with default) item in the config file and process it
 * integrate with smart blocks somehow more closely?
+* check the feed automatically, keep track of what shows have been downloaded already, and only download a show if there is a new one
