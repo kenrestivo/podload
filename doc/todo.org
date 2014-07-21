@@ -1,6 +1,18 @@
 TODO for podload
 
 * create an init.d file for running as daemon
+* add a "brutal mode" flag for brutally scraping things that aren't actually rss feeds.
+** re-use my old py regexps, i.e.
+   #+BEGIN_SRC python
+     ['.*"(http:.+mp3)".*',
+        '.*>(http:.+mp3)<.*',   
+        '.*>(http:.+ogg)<.*',
+        '.*"(http:.+ogg)".*',
+        '.*>(http:.+flac)<.*',
+        '.*"(http:.+flac)".*',
+        '.*"(.+flac)".*',
+        '.*"(.+m3u)".*']
+   #+END_SRC
 * expose the seed feature via some commandline switch
 * some kind of gui for editing the configs
 ** clojurescript? web based front-end?
