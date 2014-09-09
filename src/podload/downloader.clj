@@ -48,17 +48,20 @@
 
 (defn tag-and-copy!
   "Takes an infile, an outfile, and an album name,
+   brutally removes any tags (because mp3agic was puking on NotSupportedExceptions),
    copies infile to outfile, and adds the album tag to it"
   [infile outfile album-name]
-  (let [f (Mp3File.  infile)
-        ;; XXX BLEAH! JAVA!!
-        t (if (.hasId3v2Tag f)
-            (.getId3v2Tag f)
-            (let [t1 (ID3v24Tag.)]
-              (.setId3v2Tag f t1)
-              t1))]
-    (.setAlbum t album-name)
-    (.save f outfile)))
+  (let [f (Mp3File.  infile)]
+    (if (.hasId3v1Tag f)
+      (.removeId3v1Tag f))
+    (if (.hasId3v2Tag f)
+      (.removeId3v2Tag f))
+    (if (.hasCustomTag f)
+      (.removeCustomTag f))
+    (let [t (ID3v24Tag.)]
+      (.setId3v2Tag f t)
+      (.setAlbum t album-name)
+      (.save f outfile))))
 
 
 (defn do-everything!
@@ -74,6 +77,8 @@
       (download-latest! feed-url tempfile)
       (tag-and-copy! tempfile destfile tag)
       (log/info "Completed downloading " name)
+      (catch  Exception e
+        (log/error e name))
       (finally
         (clojure.java.io/delete-file tempfile true)))))
 

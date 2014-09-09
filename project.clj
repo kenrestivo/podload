@@ -1,4 +1,4 @@
-(defproject podload "0.1.1"
+(defproject podload "0.1.2"
   :description "Podcast downloader for Airtime"
   :url "https://github.com/kenrestivo/podload"
   :main podload.core

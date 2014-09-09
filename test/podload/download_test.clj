@@ -1,6 +1,6 @@
 (ns podload.download-test
   (:require [clojure.test :refer :all]
-            [podload.download :refer :all]))
+            [podload.downloader :refer :all]))
 
 (comment
   (download-latest! "http://www.islaearth.org/radio/feed.rss" "/mnt/sdcard/tmp/isla.mp3")
@@ -38,4 +38,19 @@
 
   (seq (.getQueue executor))
   
+  )
+
+(comment
+
+  
+  (do-everything!  {:name "test"
+                    :feed-url "http://test"
+                    :tag "Test"
+                    :filename "test.mp3"
+                    :frequency {:minute [0]
+                                :hour [0]
+                                :day-of-week [1 2 3 4 5]}
+                    :dest-dir "/mnt/sdcard/tmp"
+                    })
+
   )
