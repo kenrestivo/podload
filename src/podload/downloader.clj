@@ -51,17 +51,17 @@
    brutally removes any tags (because mp3agic was puking on NotSupportedExceptions),
    copies infile to outfile, and adds the album tag to it"
   [infile outfile album-name]
-  (let [f (Mp3File.  infile)]
+  (let [f (Mp3File.  infile)
+        t (ID3v24Tag.)]
     (when (.hasId3v1Tag f)
       (.removeId3v1Tag f))
     (when (.hasId3v2Tag f)
       (.removeId3v2Tag f))
     (when (.hasCustomTag f)
       (.removeCustomTag f))
-    (let [t (ID3v24Tag.)]
-      (.setId3v2Tag f t)
-      (.setAlbum t album-name)
-      (.save f outfile))))
+    (.setId3v2Tag f t)
+    (.setAlbum t album-name)
+    (.save f outfile)))
 
 
 (defn do-everything!
