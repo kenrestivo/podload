@@ -52,11 +52,11 @@
    copies infile to outfile, and adds the album tag to it"
   [infile outfile album-name]
   (let [f (Mp3File.  infile)]
-    (if (.hasId3v1Tag f)
+    (when (.hasId3v1Tag f)
       (.removeId3v1Tag f))
-    (if (.hasId3v2Tag f)
+    (when (.hasId3v2Tag f)
       (.removeId3v2Tag f))
-    (if (.hasCustomTag f)
+    (when (.hasCustomTag f)
       (.removeCustomTag f))
     (let [t (ID3v24Tag.)]
       (.setId3v2Tag f t)
