@@ -43,22 +43,24 @@ Edit the config file, there's an example config file included.
 ```
 Run it with:
 ```shell
-podload your-config-file.edn
+java -jar podload-XXX-standalone.jar your-config-file.edn
 ```
+
+There's also an init file in the resources directory which works in production, though you'll have to customize it somewhat for your environment.
 
 ## Building
 
 Build the binary with:
 
 ```shell
-lein bin 
+lein uberjar
 ```
 
-It'll be in target/podload as an executable "binary" (like all 15MB of it). Copy it wherever you like.
+It'll be in target/podload as a huge file (like all 15MB of it). Copy it wherever you like.
 
 ## License
 
-Copyright © 2014 ken restivo <ken@restivo.org>
+Copyright © 2014-2015 ken restivo <ken@restivo.org>
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
